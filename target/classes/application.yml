@@ -1,0 +1,174 @@
+# Server Properties
+server:
+  port: 8081
+#  servlet:
+#    context-path: /exjtecnologia
+
+# Info Application
+info:
+  app:
+    name: ExJ Tecnologia Microservice Application
+    description: Microservico responsavel pelo modulo exjtecnologia
+    version: 1.0.0
+
+# Security
+security:
+  basic:
+    enable: false
+  ignored: /**
+
+# Spring
+spring:
+  application:
+    name: exjtecnologia-microservice
+  profiles:
+    active: integrated
+  # Cloud
+  cloud:
+    discovery:
+      enabled: false
+    config:
+      enabled: false
+      discovery:
+        enabled: false
+  # Datasource & JPA
+  datasource:
+    url: jdbc:sqlserver://localhost;databaseName=DB-EXJTECNOLOGIA
+    username: sa
+    password: root
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.SQLServer2012Dialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        ddl-auto: none
+  # Jackson Properties
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    time-zone: UTC
+  # ActiveMQ
+  activemq:
+    user: admin
+    password: admin
+    broker-url: tcp://localhost:61616
+    topic: topic.sample
+
+kafka:
+  producer:
+    topic-name: testTopic
+  consumer:
+    topic-name: testTopic
+
+auto:
+  create:
+    topics:
+      enable: true
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+# Schedule
+obligationSchedule:
+  generation:
+    daysToMaxDate: 30
+controlPanelRevision:
+  scheduledExecutions:
+    time: 03:00:00
+
+# Logging
+
+# FeignClient
+feignClient:
+  autenticacao:
+    name: ExJFinanceiro
+    host: http://localhost:8082
+    apiKey: 6c8aa83c-5215-493f-97c9-207f4156230a
+    flowID: 3322
+    correlationID: 2212
+
+# Resilience4j - Circuitbreaker
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 100
+      permittedNumberOfCallsInHalfOpenState: 10
+      waitDurationInOpenState: 10000
+      failureRateThreshold: 60
+      eventConsumerBufferSize: 10
+      registerHealthIndicator: true
+  instances:
+    autenticacao:
+      baseConfig: default
+      waitDurationInOpenState: 5000
+
+# Resilience4j - Retry
+resilience4j.retry:
+  configs:
+    default:
+      maxAttempts: 3
+      waitDuration: 10s
+      enableExponentialBackoff: true
+      exponentialBackoffMultiplier: 2
+      retryExceptions:
+        - java.io.IOException
+        - feign.FeignException
+      ignoreExceptions:
+  instances:
+    autenticacao:
+      baseConfig: default
+
+# Resilience4j - Bulkhead
+resilience4j.bulkhead:
+  configs:
+    default:
+      maxWaitDuration: 10ms
+      maxConcurrentCalls: 20
+  instances:
+    autenticacao:
+      baseConfig: default
+
+# Resilience4j - Thread Pool Bulkhead
+resilience4j.thread-pool-bulkhead:
+  configs:
+    default:
+      maxThreadPoolSize: 1
+      coreThreadPoolSize: 1
+      queueCapacity: 1
+  instances:
+    autenticacao:
+      baseConfig: default
+
+# Resilience4j - Ratelimiter
+resilience4j.ratelimiter:
+  configs:
+    default:
+      limitForPeriod: 10
+      limitRefreshPeriod: 1s
+      timeoutDuration: 3s
+      registerHealthIndicator: true
+      eventConsumerBufferSize: 100
+  instances:
+    autenticacao:
+      baseConfig: default
+
+# Resilience4j - Timelimiter
+resilience4j.timelimiter:
+  configs:
+    default:
+      timeoutDuration: 3s
+      cancelRunningFuture: false
+  instances:
+    autenticacao:
+      baseConfig: default
+
