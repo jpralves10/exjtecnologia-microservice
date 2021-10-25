@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  manager:
+    image: jpralves/exjtecnologia-k8s:latest
+    environment:
+      - API_KEY=888
+    ports:
+      - 8081:8081
+    volumes:
+      - ./exjvolume:/env/exjtecnologia
+      - ./exjvolume:/env/splunk

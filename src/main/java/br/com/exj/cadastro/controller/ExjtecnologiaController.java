@@ -37,9 +37,12 @@ public class ExjtecnologiaController {
     @Value("${kafka.producer.topic-name}")
     private String producerTopic;
 
+    @Value("${api.key}")
+    private String apiKey;
+
     @GetMapping("/ola")
     public ResponseEntity<String> getExJTecnologia() {
-        return ResponseEntity.ok("Hello World!");
+        return ResponseEntity.ok("Hello World! latest " + apiKey);
     }
 
     @ApiResponses(value = { @ApiResponse(code = 200, message = "Sucesso")})

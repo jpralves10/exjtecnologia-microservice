@@ -1,4 +1,8 @@
 br\com\exj\cadastro\enums\ServicosEnumTest.class
+br\com\exj\cadastro\entity\KafkaModelTest.class
+br\com\exj\cadastro\entity\CheckoutModelTest.class
+br\com\exj\cadastro\service\ExjtecnologiaServiceImplTest.class
+br\com\exj\cadastro\controller\ExjtecnologiaControllerTest.class
 br\com\exj\cadastro\MicroserviceApplicationTest.class
 br\com\exj\cadastro\entity\ActiveMQModelTest.class
 br\com\exj\cadastro\converters\StatusTableEnumAttributeConverterTest.class

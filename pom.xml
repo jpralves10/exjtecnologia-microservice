@@ -20,8 +20,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>2.5.6</version>
+        <relativePath/> <!-- lookup parent from repository 2.4.0 -->
     </parent>
 
     <dependencies>
@@ -69,6 +69,14 @@
             <groupId>org.ff4j</groupId>
             <artifactId>ff4j-spring-boot-starter</artifactId>
             <version>1.8</version>
+        </dependency>
+
+        <!-- Logback e SLF4J  -->
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+            <version>3.0.4</version>
         </dependency>
 
         <!-- IU do Swagger /swagger-ui.html -->
@@ -219,14 +227,6 @@
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-httpclient</artifactId>
             <version>11.6</version>
-        </dependency>
-
-        <!-- Logback e SLF4J  -->
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
-            <version>3.0.2</version>
         </dependency>
 
         <!-- Spring Webflux -->
