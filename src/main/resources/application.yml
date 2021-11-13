@@ -64,6 +64,7 @@ spring:
     topic: topic.sample
 
 kafka:
+  environment: ${KAFKA_ENV:localhost}:9092
   producer:
     topic-name: testTopic
   consumer:
