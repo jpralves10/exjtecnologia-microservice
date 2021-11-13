@@ -12,10 +12,6 @@ RUN cd /
 WORKDIR /env/splunk
 RUN chmod -R 777 /env/splunk
 
-RUN cd /
-WORKDIR /evn/exjtecnologia
-RUN chmod -R 777 /evn/exjtecnologia
-
 WORKDIR /
 
 ARG JAR_FILE=target/*.jar

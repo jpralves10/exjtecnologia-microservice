@@ -1,22 +1,23 @@
 /src/target/*
-.settings
+/.settings
 .classpath
 .project
-target/
+
 /testdb.db
 mem
 **/secure-credentials*
 
-bin/
+/bin
 
 .vscode
 
-env/cadastro/app.log
-env/splunk/splunk.log
-/target/
+/.idea
+/env
+/exjvolume
 
-.idea/
-env/
+/target/*
+/target/classes
+/target/surefire-reports
 
 evosuite-files/
 evosuite-report/
