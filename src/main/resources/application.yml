@@ -93,6 +93,13 @@ controlPanelRevision:
 # Logging
 
 # FeignClient
+feign:
+  httpclient:
+    disableSslValidation: true
+    enabled: false
+  okhttp:
+    enabled: true
+
 feignClient:
   autenticacao:
     name: ExJFinanceiro

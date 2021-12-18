@@ -241,6 +241,12 @@
             <version>11.6</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+            <version>9.2.0</version>
+        </dependency>
+
         <!-- Spring Webflux -->
 
         <dependency>
